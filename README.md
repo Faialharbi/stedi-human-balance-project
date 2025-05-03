@@ -101,5 +101,5 @@ Screenshots and SQL scripts are included to validate the process.
 
 ---
 
-### 🔗Submitted by: Fai Alharbi
+### Submitted by: Fai Alharbi
 ###  Date: May 2025
