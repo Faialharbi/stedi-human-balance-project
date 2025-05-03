@@ -29,9 +29,9 @@ This project simulates ingesting and transforming sensor and customer data using
 
 Glue Tables were manually created using the following SQL DDL scripts:
 
-- 'customer_landing.sql'
-- 'accelerometer_landing.sql'
-- 'step_trainer_landing.sql'
+- `customer_landing.sql`
+- `accelerometer_landing.sql`
+- `step_trainer_landing.sql`
 
 ###  Athena Query Results:
 - ![customer_landing](screenshots/customer_landing.png)
@@ -50,11 +50,11 @@ Expected row counts:
 Glue jobs were created to filter and clean the raw landing data:
 
 ### Jobs:
-- 'customer_landing_to_trusted'
-- 'accelerometer_landing_to_trusted'
+- `customer_landing_to_trusted`
+- `accelerometer_landing_to_trusted`
 
 Filtering conditions:
-- 'shareWithResearchAsOfDate IS NOT NULL'
+- `shareWithResearchAsOfDate IS NOT NULL`
 
 ###  Athena Query Results:
 - ![customer_trusted](screenshots/customer_trusted.png)
@@ -66,12 +66,12 @@ Expected row counts:
 
 ---
 
-##  3. Curated Zone
+## 📊 3. Curated Zone
 
 ### Jobs:
-- 'customer_trusted_to_curated'
-- 'step_trainer_trusted'
-- 'machine_learning_curated'
+- `customer_trusted_to_curated`
+- `step_trainer_trusted`
+- `machine_learning_curated`
 
 ###  Athena Query Results:
 - ![customer_curated](screenshots/customer_curated.png)
@@ -85,12 +85,12 @@ Expected row counts:
 
 ---
 
-##  Notes & Challenges
+## 📝 Notes & Challenges
 
 - Dropping fields in Glue sometimes failed → used **SQL Query Node** instead.
 - Job bookmarks were disabled to ensure fresh S3 write on every run.
 - Step Trainer join required **Data Catalog source** to load full curated data.
-- Used 'SELECT DISTINCT' to remove duplicates where needed.
+- Used `SELECT DISTINCT` to remove duplicates where needed.
 
 ---
 
@@ -102,4 +102,4 @@ Screenshots and SQL scripts are included to validate the process.
 ---
 
 ### Submitted by: Fai Alharbi
-###  Date: May 2025
+### Date: May 2025
