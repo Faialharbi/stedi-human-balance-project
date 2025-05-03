@@ -74,9 +74,13 @@ Expected row counts:
 - `machine_learning_curated`
 
 ###  Athena Query Results:
+### Athena Query Results:
 - ![customer_curated](screenshots/customer_curated.png)
 - ![step_trainer_trusted](screenshots/step_trainer_trusted.png)
 - ![machine_learning_curated](screenshots/machine_learning_curated.png)
+- ![customer_trusted_not_null](screenshots/customer_trusted_not_null.png)
+- ![machine_learning_curated_success](screenshots/machine_learning_curated_success.png)
+
 
 Expected row counts:
 - Customer Curated: **464–482** rows
