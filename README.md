@@ -2,11 +2,14 @@
 
 This project simulates ingesting and transforming sensor and customer data using AWS Glue and S3. The final goal is to curate clean and research-consented data for machine learning purposes.
 
----
-
 ## 📂 Project Structure
 
-
+```
+├── README.md
+├── sql_scripts/
+│   ├── customer_landing.sql
+│   ├── accelerometer_landing.sql
+│   └── step_trainer_landing.sql
 ├── screenshots/
 │   ├── customer_landing.png
 │   ├── accelerometer_landing.png
@@ -15,11 +18,11 @@ This project simulates ingesting and transforming sensor and customer data using
 │   ├── accelerometer_trusted.png
 │   ├── customer_curated.png
 │   ├── step_trainer_trusted.png
-│   └── machine_learning_curated.png
+│   ├── machine_learning_curated.png
 │   ├── customer_trusted_not_null.png
 │   └── machine_learning_curated_success.png
+```
 
----
 
 ##  1. Landing Zone
 
