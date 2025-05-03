@@ -66,7 +66,7 @@ Expected row counts:
 
 ---
 
-## 📊 3. Curated Zone
+##  3. Curated Zone
 
 ### Jobs:
 - `customer_trusted_to_curated`
@@ -89,7 +89,7 @@ Expected row counts:
 
 ---
 
-## 📝 Notes & Challenges
+##  Notes & Challenges
 
 - Dropping fields in Glue sometimes failed → used **SQL Query Node** instead.
 - Job bookmarks were disabled to ensure fresh S3 write on every run.
