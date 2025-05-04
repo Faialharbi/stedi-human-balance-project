@@ -27,23 +27,28 @@ DEFAULT_DATA_QUALITY_RULESET = """
 """
 
 # Script generated for node AWS Glue Data Catalog
-AWSGlueDataCatalog_node1746204114995 = glueContext.create_dynamic_frame.from_catalog(database="stedi_db", table_name="customer_trusted", transformation_ctx="AWSGlueDataCatalog_node1746204114995")
+AWSGlueDataCatalog_node1746204114995 = glueContext.create_dynamic_frame.from_catalog(database="stedi_db", table_name="customer_curated", transformation_ctx="AWSGlueDataCatalog_node1746204114995")
 
 # Script generated for node AWS Glue Data Catalog
 AWSGlueDataCatalog_node1746204129933 = glueContext.create_dynamic_frame.from_catalog(database="stedi_db", table_name="accelerometer_trusted_filtered", transformation_ctx="AWSGlueDataCatalog_node1746204129933")
 
 # Script generated for node SQL Query
 SqlQuery0 = '''
-SELECT DISTINCT a.*
-FROM stedi_db.accelerometer_trusted_filtered a
-JOIN (
-  SELECT DISTINCT sensorreadingtime
-  FROM stedi_db.step_trainer_trusted
-) s
-ON a.timestamp = s.sensorreadingtime
+SELECT 
+  s.sensorReadingTime,
+  s.serialNumber,
+  s.distanceFromObject,
+  a.x,
+  a.y,
+  a.z,
+  a.timestamp
+FROM stedi_db.step_trainer_trusted s
+JOIN stedi_db.accelerometer_trusted_filtered a
+  ON s.sensorReadingTime = a.timestamp
 JOIN stedi_db.customer_trusted c
-ON a.user = c.email
-WHERE c.shareWithResearchAsOfDate IS NOT NULL
+  ON a.user = c.email
+WHERE c.shareWithResearchAsOfDate IS NOT NULL;
+
 '''
 SQLQuery_node1746204164635 = sparkSqlQuery(glueContext, query = SqlQuery0, mapping = {"a":AWSGlueDataCatalog_node1746204129933, "c":AWSGlueDataCatalog_node1746204114995}, transformation_ctx = "SQLQuery_node1746204164635")
 
