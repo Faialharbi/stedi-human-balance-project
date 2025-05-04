@@ -35,15 +35,15 @@ AWSGlueDataCatalog_node1746277288273 = glueContext.create_dynamic_frame.from_cat
 # Script generated for node SQL Query
 SqlQuery0 = '''
 SELECT 
-  c.sensorReadingTime,
-  c.serialNumber,
-  c.distanceFromObject
-FROM c
-JOIN s
-  ON c.serialNumber = s.serialNumber
+  s.sensorReadingTime,
+  s.serialNumber,
+  s.distanceFromObject
+FROM stedi_db.step_trainer_landing s
+JOIN stedi_db.customer_curated c
+  ON s.serialNumber = c.serialNumber
 
 '''
-SQLQuery_node1746277354333 = sparkSqlQuery(glueContext, query = SqlQuery0, mapping = {"c":AWSGlueDataCatalog_node1746201364404, "s":AWSGlueDataCatalog_node1746277288273}, transformation_ctx = "SQLQuery_node1746277354333")
+SQLQuery_node1746277354333 = sparkSqlQuery(glueContext, query = SqlQuery0, mapping = {"s":AWSGlueDataCatalog_node1746201364404, "c":AWSGlueDataCatalog_node1746277288273}, transformation_ctx = "SQLQuery_node1746277354333")
 
 # Script generated for node Amazon S3
 EvaluateDataQuality().process_rows(frame=SQLQuery_node1746277354333, ruleset=DEFAULT_DATA_QUALITY_RULESET, publishing_options={"dataQualityEvaluationContext": "EvaluateDataQuality_node1746276867011", "enableDataQualityResultsPublishing": True}, additional_options={"dataQualityResultsPublishing.strategy": "BEST_EFFORT", "observations.scope": "ALL"})
