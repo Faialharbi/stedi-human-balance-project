@@ -13,7 +13,9 @@ This project simulates ingesting and transforming sensor and customer data using
 ├── glue_jobs/
 │   ├── customer_landing_to_trusted.py
 │   ├── accelerometer_landing_to_trusted.py
-│   └── step_trainer_trusted.py
+│   ├── customer_trusted_to_curated.py
+│   ├── step_trainer_trusted.py
+│   └── machine_learning_curated.py
 ├── screenshots/
 │   ├── customer_landing.png
 │   ├── accelerometer_landing.png
@@ -25,6 +27,7 @@ This project simulates ingesting and transforming sensor and customer data using
 │   ├── machine_learning_curated.png
 │   ├── customer_trusted_not_null.png
 │   └── machine_learning_curated_success.png
+
 
 ```
 
