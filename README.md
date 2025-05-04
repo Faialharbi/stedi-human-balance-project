@@ -2,7 +2,7 @@
 
 This project simulates ingesting and transforming sensor and customer data using AWS Glue and S3. The final goal is to curate clean and research-consented data for machine learning purposes.
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 ├── README.md
