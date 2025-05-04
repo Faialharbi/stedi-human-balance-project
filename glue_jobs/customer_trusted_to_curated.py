@@ -34,14 +34,12 @@ AWSGlueDataCatalog_node1746134066904 = glueContext.create_dynamic_frame.from_cat
 
 # Script generated for node SQL Query
 SqlQuery0 = '''
-SELECT DISTINCT c.*
-FROM stedi_db.customer_trusted c
-JOIN stedi_db.accelerometer_trusted_filtered a
-  ON c.email = a.user
-WHERE c.shareWithResearchAsOfDate IS NOT NULL
-  AND a.timestamp >= c.shareWithResearchAsOfDate
+SELECT *
+FROM stedi_db.customer_trusted
+WHERE shareWithResearchAsOfDate IS NOT NULL
+
 '''
-SQLQuery_node1746134097831 = sparkSqlQuery(glueContext, query = SqlQuery0, mapping = {"a":AWSGlueDataCatalog_node1746134067318, "c":AWSGlueDataCatalog_node1746134066904}, transformation_ctx = "SQLQuery_node1746134097831")
+SQLQuery_node1746134097831 = sparkSqlQuery(glueContext, query = SqlQuery0, mapping = {"c":AWSGlueDataCatalog_node1746134067318, "a":AWSGlueDataCatalog_node1746134066904}, transformation_ctx = "SQLQuery_node1746134097831")
 
 # Script generated for node Amazon S3
 EvaluateDataQuality().process_rows(frame=SQLQuery_node1746134097831, ruleset=DEFAULT_DATA_QUALITY_RULESET, publishing_options={"dataQualityEvaluationContext": "EvaluateDataQuality_node1746133886869", "enableDataQualityResultsPublishing": True}, additional_options={"dataQualityResultsPublishing.strategy": "BEST_EFFORT", "observations.scope": "ALL"})
